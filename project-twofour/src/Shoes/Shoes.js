@@ -6,12 +6,14 @@ import shoeBanner from '../Assets/Images/Formal_Shoes_banner.jpg'
 import shoeBanner2 from '../Assets/Images/formalshoes.webp'
 
 
-const Shoes = () => {
+const Shoes = (props) => {
 
   const banner_sty ={
     width:"1320px",
     height:"600px"
 }
+
+ 
   return (
     <>
       {/* <div>

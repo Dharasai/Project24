@@ -2,29 +2,39 @@
 
 import React ,{ useState }from 'react'
 import { Button, InputLabel ,Input, Card } from '@material-ui/core';
-
+import {data} from './UserData';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
     // const [user ,setUser] = useState({email: "" , password: ""})
+
+    
 
     const[email, setEmail] = useState("");
     const[password, setPassword] = useState();
     const[error, setError] = useState('');
     const[err, setErr] = useState(false);
 
-
+    const navigate = useNavigate();
+    
+  // const mailData = () =>{
+  //   data.map((item)=)
+  // }
 
    const submitHandler = (e) =>{
      e.preventDefault();
     if(email=== "" || password === ""){
         setErr(true)
         setError("Please enter valid details")
+    }else if(email=== data.email && password=== data.password){
+      navigate('/homebanner')
     }else{
         setErr(false)
         setError('')
     }
     }
+   
 
  const input_sty ={
    borderRadius:"2px",

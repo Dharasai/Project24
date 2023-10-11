@@ -2,7 +2,7 @@ import React from "react";
 import {
   BrowserRouter,
   Route,
- Routes,
+  Routes,
 } from "react-router-dom";
 
 import Login from "./Components/Login"
@@ -15,22 +15,24 @@ import Shrits from './Shirts/Shirts'
 import Shoes from './Shoes/Shoes'
 import Combos from './Combos/Combos'
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <header className="App-header">
         <center>
           <BrowserRouter>
+
             <Header />
-            <Banner />
-          <Routes>
-              <Route path="shirts"  element={<Shrits />}/>
-              <Route path="shoes"  element={<Shoes />}/>
-              <Route path="login"  element={<Login />}/>
-              <Route path="timeline"  element={<Timeline />}/>
-              <Route path="tshirts" exact element={<Tshirts />}/>
-              <Route path="combos" exact element={<Combos />}/>
-              </Routes>
+            <Routes>
+              <Route path="/"  {...props} element={<Login />} />
+              <Route path="login"  {...props} element={<Login />} />
+              <Route path="homebanner" {...props} element={<Banner />} />
+              <Route path="shirts" {...props} element={<Shrits />} />
+              <Route path="shoes" {...props} element={<Shoes />} />
+              <Route path="timeline" {...props} element={<Timeline />} />
+              <Route path="tshirts" {...props} element={<Tshirts />} />
+              <Route path="combos" {...props} element={<Combos />} />
+            </Routes>
             <Footer />
           </BrowserRouter>
         </center>

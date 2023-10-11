@@ -4,9 +4,12 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Project24 from '../Assets/Images/Project24img.png';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
 
+  
+   const navigate = useNavigate();
 
   const tabs = ['LOGIN', 'TIMELINE', 'SHIRTS', 'SHOES', 'TSHIRTS', 'COMBOS'];
   const nav_bar_head = {
@@ -26,38 +29,56 @@ const Header = () => {
     listStyleType: "None",
     textDecoration: "none"
   }
-
-  return (
-    <div>
-      <Container style={nav_bar_head}>
-        <Row>
-          <Col lg={4} className='logo_img'>
-            <Avatar style={avatar_sty} alt="logo" src={Project24} />
-          </Col>
-          <Col lg={8} className='nav_items'>
-            <ul className='list_group' style={list_sty}>
-              {tabs.map((item, ind) =>
-                <Link to={`${item.toLocaleLowerCase()}`}>
-                  <Button variant="outline-dark" style={nav_Button}>
-                    <li style={{ color: "white", textDecoration: "none" }} className='list_item'
-                      key={ind}
-                    >{`${item} `}</li>
-
-                  </Button>
-                </Link>
-              )}
-            </ul>
-          </Col>
-        </Row>
-      </Container>
-    </div>
-
-  )
-}
-
-export default Header
+  // const btn_logout = {
+  // marginTop: "20px"
+  // }
 
 
+  // const logOut = () => {
+
+  //   window.localStorage.setItem("email", "");
+  //   window.localStorage.setItem("token", "");
+  //   if ('caches' in window) {
+  //     caches.keys().then((names) => {
+  //       names.forEach(name => {
+  //         caches.delete(name);
+  //       })
+  //     });
+  //     window.location.reload();
+  //   }
+  // }
+    return (
+      <div>
+        <Container style={nav_bar_head}>
+          <Row>
+            <Col lg={2} className='logo_img'>
+              <Avatar style={avatar_sty} alt="logo" onClick={navigate('/homebanner')} src={Project24} />
+            </Col>
+            <Col lg={8} className='nav_items'>
+              <ul className='list_group' style={list_sty}>
+                {tabs.map((item, ind) =>
+                  <Link to={`${item.toLocaleLowerCase()}`}>
+                    <Button variant="outline-dark" style={nav_Button}>
+                      <li style={{ color: "white", textDecoration: "none" }} className='list_item'
+                        key={ind}
+                      >{`${item} `}</li>
+
+                    </Button>
+                  </Link>
+                )}
+              </ul>
+            </Col>
+            <Col lg={2} className='logo_img'>
+              {/* <Button variant="danger"  className="btn_logout" onClick={logOut}> LOGOUT</Button> */}
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
+    )
+  }
+
+  export default Header
 
 
 
@@ -67,7 +88,9 @@ export default Header
 
 
 
-{/* <ul className='list_group'>
+
+
+  {/* <ul className='list_group'>
               {tabs.map((item, ind) =>
                <Link to ={item}>
                <Button variant="outline-dark" style={nav_Button}>
@@ -81,7 +104,7 @@ export default Header
             </ul> */}
 
 
-{/* <ul className='list_group' style={list_sty}>
+  {/* <ul className='list_group' style={list_sty}>
             <Button variant="outline-dark" style={nav_Button}>
             <Link to ="./login">
                   <li style={{color:"white", textDecoration:"none"}}className='list_item'>HOME</li>

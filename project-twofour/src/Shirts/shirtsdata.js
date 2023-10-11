@@ -1,6 +1,6 @@
 
-{ 
-  "Shirts":
+
+ export const  ShirtsData =
     [
     {
         "id":1,
@@ -143,4 +143,3 @@
         "price":"$ 599"
     }
 ]
-}
